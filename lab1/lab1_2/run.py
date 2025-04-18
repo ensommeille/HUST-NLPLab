@@ -182,7 +182,7 @@ def get_param():
 
 
 def set_logger():
-    log_file = os.path.join('save1', 'log.txt')
+    log_file = os.path.join('save2', 'log.txt')
     logging.basicConfig(
         format='%(asctime)s %(levelname)-8s %(message)s',
         level=logging.DEBUG,
@@ -232,7 +232,6 @@ def main(args):
         x_test = pickle.load(inp)
         y_test = pickle.load(inp)
 
-    # 调用新词发现功能
     texts = get_texts_for_new_word_discovery()
     new_words = find_new_words(texts)
     logging.info("发现的新词: %s", new_words)
@@ -320,7 +319,7 @@ def main(args):
                 logging.info("recall: 0")
                 logging.info("fscore: 0")
             model.train()
-        path_name = "./save1/model_epoch" + str(epoch) + ".pkl"
+        path_name = "./save2/model_epoch" + str(epoch) + ".pkl"
         torch.save(model, path_name)
         logging.info("model has been saved in  %s" % path_name)
 
